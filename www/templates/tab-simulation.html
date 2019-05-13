@@ -1,0 +1,86 @@
+<ion-view hide-nav-bar="true">
+    <ion-content id="canvas">
+        <three-js-canvas></three-js-canvas>
+        <div class="item item-body text-center">
+            <div class="button-bar">
+                <button class="button button-block button-light" ng-click="restart()">
+                    Restart
+                </button>
+                <button class="button button-block button-light icon icon-right"
+                        ng-bind="(t()| number : 0)+'s'" ng-click="pauseResume()" ng-class="buttonState.class"></button>
+                <button class="button button-block button-light" ng-click="reorient()">
+                    Default
+                </button>
+            </div>
+            <div class="range" ng-show="buttonState.pause">
+                <span class="">Slow</span>
+                <input id="dt" type="range" min="0.01" max="0.05" step="0.00001" ng-model="inputs.dt"
+                       ng-change="setDt()">
+                <span class="">Fast</span>
+            </div>
+            <div ng-hide="buttonState.pause">
+                <button class="button button-block button-stable icon-right ion-ios-arrow-down"
+                        ng-click="selOptionsModal.show()">
+                    <span ng-bind="selectedOption.name"></span>
+                </button>
+
+                <div ng-hide="selectedOption.name !== 'Angular Velocities'">
+                    <div class="row">
+                        <div class="col">
+                            <span class="label"><b>&omega;<sub>x</sub>: </b></span>
+                            <span ng-bind="wx()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>&omega;<sub>y</sub>: </b></span>
+                            <span ng-bind="wy()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>&omega;<sub>z</sub>: </b></span>
+                            <span ng-bind="wz()| number : 3"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-hide="selectedOption.name === 'Angular Velocities'||selectedOption.name === 'Euler Parameters'">
+                    <div class="row">
+                        <div class="col">
+                            <span class="label"><b>&theta;<sub>a</sub>: </b></span>
+                            <span ng-bind="O1()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>&theta;<sub>b</sub>: </b></span>
+                            <span ng-bind="O2()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>&theta;<sub>c</sub>: </b></span>
+                            <span ng-bind="O3()| number : 3"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-hide="selectedOption.name !== 'Euler Parameters'">
+                    <div class="row">
+                        <div class="col">
+                            <span class="label"><b>e<sub>0</sub>: </b></span>
+                            <span ng-bind="e0()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>e<sub>1</sub>: </b></span>
+                            <span ng-bind="e1()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>e<sub>2</sub>: </b></span>
+                            <span ng-bind="e2()| number : 3"></span>
+                        </div>
+                        <div class="col">
+                            <span class="label"><b>e<sub>3</sub>: </b></span>
+                            <span ng-bind="e3()| number : 3"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

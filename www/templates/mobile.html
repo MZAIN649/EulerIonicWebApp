@@ -1,0 +1,42 @@
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+
+
+
+    <ion-tab title="Inputs" icon-off="ion-ios-settings" icon-on="ion-ios-settings-strong" href="#/tab/inputs">
+        <ion-nav-view name="tab-inputs"></ion-nav-view>
+    </ion-tab>
+
+
+
+
+    <ion-tab title="Simulation" icon-off="ion-ios-analytics-outline" icon-on="ion-ios-analytics" href="#/tab/simulation"
+        on-select="setInputs()">
+        <ion-nav-view name="tab-simulation"></ion-nav-view>
+    </ion-tab>
+
+
+
+    <ion-tab title="Graphs" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/outputs"
+        on-select="setInputs(); updateGraphs()">
+        <ion-nav-view name="tab-outputs"></ion-nav-view>
+    </ion-tab>
+
+
+
+    <ion-tab title="Help" icon-off="ion-ios-help-outline" icon-on="ion-ios-help" href="#/tab/tab-help"
+        on-select="setInputs();updateGraphs()">
+        <ion-nav-view name="tab-help"></ion-nav-view>
+    </ion-tab>
+
+    <!---
+    <ion-tab title="Graphs" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/outputs-free"
+             on-select="setInputs(); updateGraphs()" ng-if="F16456A98566EB8EF">
+        <ion-nav-view name="tab-outputs-free"></ion-nav-view>
+    </ion-tab>
+-->
+
+
+
+
+</ion-tabs>

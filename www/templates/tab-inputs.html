@@ -1,0 +1,165 @@
+<ion-view hide-nav-bar="true">
+    <div ng-hide="isMobile" class="bar bar-header bar-light">
+        <h1 class="title">Inputs</h1>
+    </div>
+    <ion-content class="card" ng-class="{'avoid-header':!isMobile}">
+
+        <ion-list>
+
+            <ion-item class="item-light" ng-class="{active: isGroupShown('Shapes')}" ng-click="toggleGroup('Shapes')">
+                <div class="row">
+                    <div class="col-90">
+                        <i class="icon"
+                            ng-class="isGroupShown('Shapes') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i> &nbsp;
+                        <span>Shapes</span>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item ng-show="isGroupShown('Shapes')">
+                <div class="row">
+                    <div class="card col" ng-click="select('brick')">
+                        <img src="../img/brick.png" class="block-img">
+                        <div class="text-center">
+                            <i class="icon"
+                                ng-class="selected == 'brick' ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'">
+                            </i>
+                            <span class="title">Flying Brick</span>
+                        </div>
+                    </div>
+                    <div class="card col" ng-click="select('cube')">
+                        <img src="../img/cube.png" class="block-img">
+                        <div class="text-center">
+                            <i class="icon"
+                                ng-class="selected == 'cube' ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'">
+                            </i>
+                            <span class="title">Cube</span>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="row">
+                    <div class="card col" ng-click="select('prolate')">
+                        <img src="../img/cube.png" class="block-img">
+                        <div class="text-center">
+                            <i class="icon"
+                               ng-class="selected == 'prolate' ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'">
+                            </i>
+                            <span class="title">Prolate</span>
+                        </div>
+                    </div>
+                    <div class="card col" ng-click="select('oblate')">
+                        <img src="../img/cube.png" class="block-img">
+                        <div class="text-center">
+                            <i class="icon"
+                               ng-class="selected == 'oblate' ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'">
+                            </i>
+                            <span class="title">Oblate</span>
+                        </div>
+                    </div>
+                </div>
+            -->
+            </ion-item>
+
+            <ion-item class="item-light" ng-class="{active: isGroupShown('Moment of Inertia')}"
+                ng-click="toggleGroup('Moment of Inertia')">
+                <div class="row">
+                    <div class="col-90">
+                        <i class="icon"
+                            ng-class="isGroupShown('Moment of Inertia') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                        &nbsp;
+                        <span>Moment of Inertia</span>
+                    </div>
+                    &nbsp; &nbsp;
+                    <div class="col-10 icon icon-right ion-information-circled" ng-click="showAlert()"></div>
+                </div>
+            </ion-item>
+            <ion-item class="item-accordion" ng-show="isGroupShown('Moment of Inertia')">
+                <div class="item range">
+                    <span class="label">I<sub>x</sub></span>
+                    <input type="range" min="0.1" max="1" step="0.00001" ng-model="inputs.ix"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.ix | number: 2"></span>
+                </div>
+                <div class="item range">
+                    <span class="label">I<sub>y</sub></span>
+                    <input type="range" min="0.1" max="1" step="0.00001" ng-model="inputs.iy"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.iy | number: 2"></span>
+                </div>
+                <div class="item range">
+                    <span class="label">I<sub>z</sub></span>
+                    <input type="range" min="0.1" max="1" step="0.00001" ng-model="inputs.iz"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.iz | number: 2"></span>
+                </div>
+            </ion-item>
+
+            <ion-item class="item-light" ng-class="{active: isGroupShown('Angular Velocity')}"
+                ng-click="toggleGroup('Angular Velocity')">
+                <i class="icon"
+                    ng-class="isGroupShown('Angular Velocity') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                &nbsp;
+                <span>Angular Velocity</span>
+            </ion-item>
+            <ion-item class="item-accordion" ng-show="isGroupShown('Angular Velocity')">
+                <div class="item range">
+                    <span class="label">&omega;<sub>x</sub></span>
+                    <input type="range" min="0" max="1" step="0.00001" ng-model="inputs.wx"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.wx | number: 2"></span>
+                </div>
+                <div class="item range">
+                    <span class="label">&omega;<sub>y</sub></span>
+                    <input type="range" min="0" max="1" step="0.00001" ng-model="inputs.wy"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.wy | number: 2"></span>
+                </div>
+                <div class="item range">
+                    <span class="label">&omega;<sub>z</sub></span>
+                    <input type="range" min="0" max="1" step="0.00001" ng-model="inputs.wz"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.wz | number: 2"></span>
+                </div>
+            </ion-item>
+
+            <ion-item class="item-light" ng-class="{active: isGroupShown('Torques')}" ng-click="toggleGroup('Torques')">
+                <i class="icon" ng-class="isGroupShown('Torques') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                &nbsp;
+                <span>Torques</span>
+            </ion-item>
+            <ion-item class="item-accordion" ng-show="isGroupShown('Torques')">
+                <div class="item range">
+                    <span class="label">&tau;<sub>x</sub></span>
+                    <input type="range" min="0" max="0.05" step="0.00001" ng-model="inputs.mx"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.mx | number: 2"></span>
+                </div>
+                <div class="item range">
+                    <span class="label">&tau;<sub>y</sub></span>
+                    <input type="range" min="0" max="0.05" step="0.00001" ng-model="inputs.my"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.my | number: 2"></span>
+                </div>
+                <div class="item range">
+                    <span class="label">&tau;<sub>z</sub></span>
+                    <input type="range" min="0" max="0.05" step="0.00001" ng-model="inputs.mz"
+                        ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.mz | number: 2"></span>
+                </div>
+            </ion-item>
+
+            <ion-item class="item-light" ng-class="{active: isGroupShown('Time')}" ng-click="toggleGroup('Time')">
+                <i class="icon" ng-class="isGroupShown('Time') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                &nbsp;
+                <span>Time</span>
+            </ion-item>
+            <ion-item class="item-accordion" ng-show="isGroupShown('Time')">
+                <div class="item range">
+                    <span class="label">t</span>
+                    <input type="range" min="20" max="100" step="10" ng-model="inputs.t" ng-disabled="!inputsEnabled">
+                    <span ng-bind="inputs.t | number: 0"></span>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

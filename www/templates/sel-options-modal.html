@@ -1,0 +1,25 @@
+<div class="modal">
+    <ion-header-bar>
+        <h1 class="title">Choose Graph</h1>
+        <a ng-click="selOptionsModal.hide()" class="button button-icon icon ion-ios-close-empty"></a>
+    </ion-header-bar>
+    <ion-content>
+        <div class="item item-body">
+            <ion-list>
+                <div ng-repeat="group in selOptions">
+                    <ion-item class="item-stable" ng-class="{active: isGroupShown(group)}"
+                              ng-click="(group.items) ? toggleGroup(group) : clickOptionItem(group)">
+                        <i class="icon" ng-show="group.items"
+                           ng-class="isGroupShown(group) ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                        &nbsp;
+                        <span ng-bind="group.name"></span>
+                    </ion-item>
+                    <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)"
+                              ng-click="clickOptionItem(item)">
+                        <span ng-bind="item.name"></span>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </div>
+    </ion-content>
+</div>

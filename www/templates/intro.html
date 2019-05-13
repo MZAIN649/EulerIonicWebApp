@@ -1,0 +1,32 @@
+<ion-view title="Introduction">
+    <ion-content id="intro">
+        <div class="card">
+            <div class="item item-divider">Inputs</div>
+            <div class="item whitespace-fix">
+                Inputs tab is used to set values of initial conditions. Press 'Set Inputs' button after changing inputs.
+            </div>
+            <div class="item item-divider">Simulation</div>
+            <div class="item whitespace-fix">
+                Simulation tab is used for displaying simulation, you can change orientation by sliding over the body.
+                Also value of Euler Parameters, Euler Angles and Angular Velocity at specific time can be noted by
+                pausing the simulation.
+            </div>
+            <div class="item item-divider">Graphs</div>
+            <div class="item whitespace-fix">
+                Graphs tab will display graphs of Euler Parameters, Euler Angles and Angular Velocity for complete
+                simulation.
+            </div>
+        </div>
+        <div class="padding" ng-click="proceed()">
+            <button class="button button-block button-positive">
+                Proceed
+            </button>
+        </div>
+
+        <div class="padding">
+            <ion-checkbox ng-model="showagain" ng-change="printCheck(showagain)">Don't show this again</ion-checkbox>
+            <!-- {{showagain}} -->
+        </div>
+
+    </ion-content>
+</ion-view>

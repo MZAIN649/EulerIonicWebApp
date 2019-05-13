@@ -1,0 +1,39 @@
+<ion-view hide-nav-bar="true">
+    <div ng-hide="isMobile" class="bar bar-header bar-light">
+        <h1 class="title">Graphs</h1>
+    </div>
+    <ion-content ng-class="{'avoid-header': !isMobile}">
+        <div class="item item-divider item-light">
+            <button class="button button-block button-stable icon-right ion-ios-arrow-down"
+                    ng-click="selOptionsModal.show()">
+                <span ng-bind="selectedOption.name"></span>
+            </button>
+        </div>
+        <div class="item item-divider item-stable text-center">
+            <span ng-bind-html="trust(names[0])"></span>
+        </div>
+        <div class="item item-body">
+            <div class="ct-octave" id="chart1"></div>
+        </div>
+        <div class="item item-divider item-stable text-center">
+            <span ng-bind-html="trust(names[1])"></span>
+        </div>
+        <div class="item item-body">
+            <div class="ct-octave" id="chart2"></div>
+        </div>
+        <div class="item item-divider item-stable text-center">
+            <span ng-bind-html="trust(names[2])"></span>
+        </div>
+        <div class="item item-body">
+            <div class="ct-octave" id="chart3"></div>
+        </div>
+        <div ng-show="selectedOption.name === 'Euler Parameters'">
+            <div class="item item-divider item-stable text-center">
+                <span ng-bind-html="trust(names[3])"></span>
+            </div>
+            <div class="item item-body">
+                <div class="ct-octave" id="chart4"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

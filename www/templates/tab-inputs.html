@@ -196,6 +196,13 @@
                 <div class="col-10 icon icon-right ion-information-circled" ng-click="showAlert()"></div>
             </div>
         </ion-item>
+        <ion-item class="item-accordion" ng-show="isGroupShown('Time')">
+            <div class="item range">
+                <span class="label">t</span>
+                <input type="range" min="20" max="100" step="10" ng-model="inputs.t" ng-disabled="!inputsEnabled">
+                <span ng-bind="inputs.t | number: 0"></span>
+            </div>
+        </ion-item>
 
             <!-- <ion-item class="item-light" ng-class="{active: isGroupShown('Time')}" ng-click="toggleGroup('Time')">
                 <i class="icon" ng-class="isGroupShown('Time') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>

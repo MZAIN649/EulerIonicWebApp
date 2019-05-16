@@ -134,11 +134,37 @@ angular.module('starter.controllers', ['ionic'])
 
 		$scope.showAlert = function () {
 			$ionicPopup.alert({
-				title: 'Input Constrains',
-				template: 'Inputs are constrained to make sure sum of two moments of inertia is greater than third',
+				title: 'Moment of Inertia',
+				template: 'Moment of inertia is a quantity that determines the torque needed for a desired angular acceleration about a rotational axis.',
 				okType: 'button-light'
 			});
 		};
+
+		$scope.showAlertAngularVelocity = function () {
+			$ionicPopup.alert({
+				title: 'Angular Velocity',
+				template: 'Angular velocity refers to how fast an object rotates or revolves relative to another point, i.e. how fast the angular position or orientation of an object changes with time. Spin angular velocity refers to how fast a rigid body rotates with respect to its centre of rotation',
+				okType: 'button-light'
+			});
+		};
+
+		$scope.showAlertTorques = function () {
+			$ionicPopup.alert({
+				title: 'Torque',
+				template: 'A torque is a force applied to a point on an object about the axis of rotation.',
+				okType: 'button-light'
+			});
+		};
+
+
+		$scope.showAlertTime = function () {
+			$ionicPopup.alert({
+				title: 'Time',
+				template: 'Time of simulation.',
+				okType: 'button-light'
+			});
+		};
+
 
 		function ix() {
 			return parseFloat($scope.inputs.ix)

@@ -11,7 +11,7 @@
                     <div class="col-90">
                         <i class="icon"
                             ng-class="isGroupShown('Shapes') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i> &nbsp;
-                        <span>Shapes</span>
+                        <span>Default Shapes</span>
                     </div>
                 </div>
             </ion-item>
@@ -92,15 +92,34 @@
                         ng-disabled="!inputsEnabled">
                     <span ng-bind="inputs.iz | number: 2"></span>
                 </div>
+                <div class="item item-text-wrap pro-section" style="text-align:justify">Inputs are constrained to make
+                    sure sum of two moments of inertia is greater than third </div>
             </ion-item>
 
             <ion-item class="item-light" ng-class="{active: isGroupShown('Angular Velocity')}"
+                ng-click="toggleGroup('Angular Velocity')">
+                <div class="row">
+                    <div class="col-90">
+                        <i class="icon"
+                            ng-class="isGroupShown('Angular Velocity') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                        &nbsp;
+                        <span>Angular Velocity</span>
+                    </div>
+                    &nbsp; &nbsp;
+                    <div class="col-10 icon icon-right ion-information-circled" ng-click="showAlertAngularVelocity()">
+                    </div>
+                </div>
+            </ion-item>
+
+            <!-- <ion-item class="item-light" ng-class="{active: isGroupShown('Angular Velocity')}"
                 ng-click="toggleGroup('Angular Velocity')">
                 <i class="icon"
                     ng-class="isGroupShown('Angular Velocity') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
                 &nbsp;
                 <span>Angular Velocity</span>
-            </ion-item>
+            </ion-item> -->
+
+
             <ion-item class="item-accordion" ng-show="isGroupShown('Angular Velocity')">
                 <div class="item range">
                     <span class="label">&omega;<sub>x</sub></span>
@@ -122,11 +141,27 @@
                 </div>
             </ion-item>
 
+
             <ion-item class="item-light" ng-class="{active: isGroupShown('Torques')}" ng-click="toggleGroup('Torques')">
+                <div class="row">
+                    <div class="col-90">
+                        <i class="icon"
+                            ng-class="isGroupShown('Torques') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                        &nbsp;
+                        <span>Torques</span>
+                    </div>
+                    &nbsp; &nbsp;
+                    <div class="col-10 icon icon-right ion-information-circled" ng-click="showAlertTorques()"></div>
+                </div>
+            </ion-item>
+
+            <!-- <ion-item class="item-light" ng-class="{active: isGroupShown('Torques')}" ng-click="toggleGroup('Torques')">
                 <i class="icon" ng-class="isGroupShown('Torques') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
                 &nbsp;
                 <span>Torques</span>
-            </ion-item>
+            </ion-item> -->
+
+
             <ion-item class="item-accordion" ng-show="isGroupShown('Torques')">
                 <div class="item range">
                     <span class="label">&tau;<sub>x</sub></span>
@@ -148,7 +183,21 @@
                 </div>
             </ion-item>
 
-            <ion-item class="item-light" ng-class="{active: isGroupShown('Time')}" ng-click="toggleGroup('Time')">
+            <ion-item class="item-light" ng-class="{active: isGroupShown('Time')}"
+            ng-click="toggleGroup('Time')">
+            <div class="row">
+                <div class="col-90">
+                    <i class="icon"
+                        ng-class="isGroupShown('Time') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
+                    &nbsp;
+                    <span>Time</span>
+                </div>
+                &nbsp; &nbsp;
+                <div class="col-10 icon icon-right ion-information-circled" ng-click="showAlert()"></div>
+            </div>
+        </ion-item>
+
+            <!-- <ion-item class="item-light" ng-class="{active: isGroupShown('Time')}" ng-click="toggleGroup('Time')">
                 <i class="icon" ng-class="isGroupShown('Time') ? 'ion-ios-arrow-right' : 'ion-ios-arrow-down'"></i>
                 &nbsp;
                 <span>Time</span>
@@ -159,7 +208,9 @@
                     <input type="range" min="20" max="100" step="10" ng-model="inputs.t" ng-disabled="!inputsEnabled">
                     <span ng-bind="inputs.t | number: 0"></span>
                 </div>
-            </ion-item>
+            </ion-item> -->
+
+
         </ion-list>
     </ion-content>
 </ion-view>
